@@ -8,8 +8,6 @@
 
 ## Requires
 
-php: >=7.0
-
 thinkphp: >=6.0
 
 ## Installing
