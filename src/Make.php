@@ -6,7 +6,7 @@
 // | Remark:
 // |
 
-namespace Haojohnny\Tp5Curd;
+namespace Haojohnny\Tp6Curd;
 
 use think\console\command\Make as MakeAbstract;
 use think\console\Output;
@@ -28,13 +28,12 @@ class Make extends MakeAbstract
 
     /**
      * 获取类命名空间
-     * @param $appNamespace
-     * @param $module
+     * @param string $appNamespace
      * @return string
      */
-    protected function getNamespace($appNamespace, $module)
+    protected function getNamespace($appNamespace): string
     {
-        return parent::getNamespace($appNamespace, $module).'\\'.$this->type;
+        return parent::getNamespace($appNamespace).'\\'.$this->type;
     }
 
     /**

@@ -6,10 +6,10 @@
 // | Remark:
 // |
 
-namespace Haojohnny\Tp5Curd\Command;
+namespace Haojohnny\Tp6Curd\Command;
 
 use think\console\Input\Argument;
-use Haojohnny\Tp5Curd\Make;
+use Haojohnny\Tp6Curd\Make;
 
 class Model extends Make
 {
@@ -19,7 +19,7 @@ class Model extends Make
     {
         $this->setName('make:curd-model')
             ->addArgument('name', Argument::REQUIRED, 'Please input your class name')
-            ->addArgument('tableName', Argument::OPTIONAL, 'Please input your table name')
+            ->addArgument('tableName', Argument::REQUIRED, 'Please input your table name')
             ->setDescription('Creat a new validate class for CURD');
     }
 

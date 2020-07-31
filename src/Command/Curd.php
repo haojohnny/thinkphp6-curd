@@ -6,9 +6,9 @@
 // | Remark:
 // |
 
-namespace Haojohnny\Tp5Curd\Command;
+namespace Haojohnny\Tp6Curd\Command;
 
-use Haojohnny\Tp5Curd\Make;
+use Haojohnny\Tp6Curd\Make;
 use think\console\Input;
 use think\console\Output;
 use think\console\Input\Argument;
@@ -19,7 +19,7 @@ class Curd extends Make
     {
         $this->setName('make:curd')
             ->addArgument('name', Argument::REQUIRED, 'Please input your class name')
-            ->addArgument('tableName', Argument::OPTIONAL, 'Please input your table name')
+            ->addArgument('tableName', Argument::REQUIRED, 'Please input your table name')
             ->setDescription('Creat model,validate,controller class for CURD');
     }
 

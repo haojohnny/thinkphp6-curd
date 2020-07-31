@@ -6,23 +6,21 @@
 // | Remark:
 // |
 
-namespace Haojohnny\Tp5Curd\Command;
+namespace Haojohnny\Tp6Curd\Command;
 
 use think\Db;
-use Haojohnny\Tp5Curd\Make;
+use Haojohnny\Tp6Curd\Make;
 use think\console\Input\Argument;
 
 class Validate extends Make
 {
     protected $type = 'validate';
 
-    protected $columnsInfo;
-
     protected function configure()
     {
         $this->setName('make:curd-validate')
             ->addArgument('name', Argument::REQUIRED, 'Please input your class name')
-            ->addArgument('tableName', Argument::OPTIONAL, 'Please input your table name')
+            ->addArgument('tableName', Argument::REQUIRED, 'Please input your table name')
             ->setDescription('Creat a new validate class for CURD');
     }
 
@@ -33,7 +31,7 @@ class Validate extends Make
         $namespace = trim(implode('\\', array_slice(explode('\\', $name), 0, -1)), '\\');
         $class = str_replace($namespace . '\\', '', $name);
 
-        $tableName = $this->input->getArgument('tableName') ?? config('database.prefix').strtolower($class);;
+        $tableName = $this->input->getArgument('tableName');
 
         $columnsInfo = $this->getColumnsInfo($tableName);
 
@@ -64,13 +62,22 @@ class Validate extends Make
      */
     public function getColumnsInfo($tableName)
     {
+        $arr = explode('.', $tableName);
+        if (count($arr)) {
+            list($dbName, $tableName) = $arr;
+        }
+
         $sql = "SELECT COLUMN_NAME,COLUMN_KEY,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,COLUMN_COMMENT,IS_NULLABLE 
                 FROM INFORMATION_SCHEMA.Columns 
                 WHERE table_name='{$tableName}'";
 
+        if (!empty($dbName)) {
+            $sql = "{$sql} AND TABLE_SCHEMA = '{$dbName}'";
+        }
+
         return Db::query($sql);
     }
-    
+
     public function getRule($columnsInfo)
     {
         $rule = '';

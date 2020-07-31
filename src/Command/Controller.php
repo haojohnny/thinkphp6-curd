@@ -6,9 +6,9 @@
 // | Remark:
 // |
 
-namespace Haojohnny\Tp5Curd\Command;
+namespace Haojohnny\Tp6Curd\Command;
 
-use Haojohnny\Tp5Curd\Make;
+use Haojohnny\Tp6Curd\Make;
 use think\console\Input\Argument;
 
 class Controller extends Make
@@ -19,7 +19,7 @@ class Controller extends Make
     {
         $this->setName('make:curd-controller')
             ->addArgument('name', Argument::REQUIRED, 'Please input your class name')
-            ->addArgument('tableName', Argument::OPTIONAL, 'Please input your table name')
+            ->addArgument('tableName', Argument::REQUIRED, 'Please input your table name')
             ->setDescription('Creat a new controller class for CURD');
     }
 
@@ -32,7 +32,7 @@ class Controller extends Make
         $class = str_replace($namespace . '\\', '', $name);
 
         $namespaceDirName = substr($namespace, 0, strrpos($namespace, '\\'));
-        
+
         $search = [
             '{%createTime%}',
             '{%modelNameSpace%}',
