@@ -8,7 +8,7 @@
 
 namespace Haojohnny\Tp6Curd\Command;
 
-use think\Db;
+use think\facade\Db;
 use Haojohnny\Tp6Curd\Make;
 use think\console\Input\Argument;
 
