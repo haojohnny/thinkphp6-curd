@@ -1,34 +1,34 @@
-<h1 align="center"> thinkphp5-curd </h1>
+<h1 align="center"> thinkphp6-curd </h1>
 
 <p align="center">
 基于Thinkphp5自定义命令行工具，根据数据表结构创建更完善的model，validate，controller类的开发者工具。
 
-如果你经常写后台管理系统的CURD，那么这个扩展包非常适合你，针对thinkphp5官方命令进行了增强，根据传入的数据表名，创建功能更完善的model，validate，controller类，减少重复造轮子的时间，让你更专注于核心业务开发。
+如果你经常写后台管理系统的CURD，那么这个扩展包非常适合你，针对thinkphp6官方命令进行了增强，根据传入的数据表名，创建功能更完善的model，validate，controller类，减少重复造轮子的时间，让你更专注于核心业务开发。
 </p>
 
 ## Requires
 
 php: >=7.0
 
-thinkphp: >=5.0
+thinkphp: >=6.0
 
 ## Installing
 
 ```shell
-$ composer require haojohnny/tp5-curd -vvv
+$ composer require haojohnny/tp6-curd -vvv
 ```
 
 ## Usage
 
-在Thinkphp5框架的command.php文件中，加入工具命令
+在Thinkphp6框架的console.php文件中，加入工具命令
 ```php
 <?php
 
     return [
-        'Haojohnny\Tp5Curd\Command\Curd',
-        'Haojohnny\Tp5Curd\Command\Model',
-        'Haojohnny\Tp5Curd\Command\Validate',
-        'Haojohnny\Tp5Curd\Command\Controller',
+        'Haojohnny\Tp6Curd\Command\Curd',
+        'Haojohnny\Tp6Curd\Command\Model',
+        'Haojohnny\Tp6Curd\Command\Validate',
+        'Haojohnny\Tp6Curd\Command\Controller',
     ];
 ```
 
