@@ -1,5 +1,5 @@
 {
-    "name": "haojohnny\/tp5-curd",
+    "name": "haojohnny\/tp6-curd",
     "description": "Package description here.",
     "license": "MIT",
     "authors": [
@@ -9,11 +9,11 @@
         }
     ],
     "require": {
-        "php" : ">=7.0"
+        "php" : ">=7.1"
     },
     "autoload": {
         "psr-4": {
-            "Haojohnny\\Tp5Curd\\": "src"
+            "Haojohnny\\Tp6Curd\\": "src"
         }
     }
 }
