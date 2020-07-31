@@ -102,10 +102,8 @@ EOF;
      */
     public function parseColumnToRule($column)
     {
-        $rules = [];
-        if ($column['IS_NULLABLE'] == 'NO') {
-            $rules[] = 'require';
-        }
+        // 默认必填
+        $rules[] = 'require';
 
         switch ($column['DATA_TYPE']) {
             case 'int':
